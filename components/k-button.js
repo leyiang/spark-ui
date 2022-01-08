@@ -208,14 +208,11 @@ export default class KButton extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log("Connected", this );
         this.btn = this.shadowRoot.getElementById("btn");
         this.disabled = this.disabled;
     }
 
     attributeChangedCallback(name, oldValue, newValue ) {
-        console.log("____Changed", this );
-        // console.log( 1, name, oldValue, newValue );
         if( name === 'disabled' && this.btn ) {
             if( newValue !== null ) {
                 this.btn.setAttribute("disabled", "disabled");

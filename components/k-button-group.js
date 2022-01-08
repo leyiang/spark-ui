@@ -49,5 +49,4 @@ class KButtonGroup extends HTMLElement {
 
 if( ! customElements.get("k-button-group") ) {
     customElements.define("k-button-group", KButtonGroup );
-    customElements.define("k-button-group", KButtonGroup );
 }
