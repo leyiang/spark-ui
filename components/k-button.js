@@ -50,6 +50,7 @@ export default class KButton extends HTMLElement {
                 */
                 :host {
                     display: inline-flex;
+                    border-radius: var(--borderRadius, .25em);
                 }
 
                 a,
@@ -71,7 +72,7 @@ export default class KButton extends HTMLElement {
                     font-size: 14px;
                     font-family: Arial;
                     color: var(--fontColor, #333);
-                    border-radius: var(--borderRadius, .25em);
+                    border-radius: inherit;
                     transition: background .3s, box-shadow .3s, border-color .3s, color .3s;
                     background-color: transparent;
                 }
@@ -231,4 +232,6 @@ export default class KButton extends HTMLElement {
     }
 }
 
-customElements.define("k-button", KButton);
+if( ! customElements.get("k-button") ) {
+    customElements.define("k-button", KButton);
+}
