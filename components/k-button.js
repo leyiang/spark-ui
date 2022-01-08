@@ -1,3 +1,5 @@
+import "./k-loading.js";
+
 /**
  * Define KButton Class
  */
@@ -29,6 +31,7 @@ export default class KButton extends HTMLElement {
 
         shadowRoot.innerHTML = `            
             ${this.componentStyle}
+            
             
             <${this.href ? "a" : "button"}
                 ${this.htmlType ? attr.type : ''}
@@ -77,6 +80,9 @@ export default class KButton extends HTMLElement {
                     background-color: transparent;
                 }
 
+                k-loading {
+                    margin-right: .35rem;;
+                }
                 /*
                     Selects a shadow root host, only if it is
                     matched by the selector argument
@@ -207,9 +213,22 @@ export default class KButton extends HTMLElement {
         }
     }
 
+    set loading( val ) {
+        if( val === null || val === false ) {
+            this.removeAttribute("loading");
+        } else {
+            this.setAttribute("loading", '' );
+        }
+    }
+
     connectedCallback() {
         this.btn = this.shadowRoot.getElementById("btn");
+
         this.disabled = this.disabled;
+        this.loadEl = document.createElement("k-loading");
+        this.loadEl.style.color = "inherit";
+
+        this.loading && (this.loading = this.loading);
     }
 
     attributeChangedCallback(name, oldValue, newValue ) {
@@ -225,6 +244,17 @@ export default class KButton extends HTMLElement {
                     this.btn.href = this.href;
                 }
             }
+        }
+
+        if( name === 'loading' && this.btn ) {
+            if( newValue !== null ) {
+                this.btn.prepend( this.loadEl );
+                this.btn.setAttribute("disabled", "disabled");
+            } else {
+                this.btn.removeChild( this.loadEl );
+                this.btn.removeAttribute("disabled", "disabled");
+            }
+            console.log( 1, oldValue, newValue );
         }
     }
 }
