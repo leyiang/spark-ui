@@ -7,6 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sample Page</title>
     <script src="index.js" type="module"></script>
+
+    <style>
+        .tip-container {
+            display: grid;
+            grid-template-columns: repeat(24, 1fr);
+            grid-gap: 10px;
+            margin: 100px auto;
+            max-width: 800px;
+        }
+
+        .col.span-4 {
+            grid-column: span 4;
+        }
+
+        .col.span-8 {
+            grid-column: span 8;
+        }
+
+        .col.span-16 {
+            grid-column: span 16;
+        }
+
+        .col.span-12 {
+            grid-column: span 12;
+        }
+
+        .col k-tip, .col k-button {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 
@@ -70,6 +100,113 @@
     <hr>
 
     <k-loading>Loading</k-loading>
+
+    <hr>
+
+    <div class="tip-container">
+        <div class="col span-4 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="top-left" dir="top-left">
+                <k-button>top-left</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4">
+            <k-tip tip="top" dir="top">
+                <k-button>top</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4">
+            <k-tip tip="top-right" dir="top-right">
+                <k-button>top-right</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-8 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="left-topbottomasdfklajdsflkasj dklfjasd lkfjasldk jflaksdj flkasjdflk asd" dir="left-top">
+                <k-button>left-top</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-12 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="right-topasdfklajdsflkasj dklfjasd lkfjasldk jflaksdj flkasjdflk asd" dir="right-top">
+                <k-button>right-top</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="left" dir="left">
+                <k-button>left</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-12 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="right" dir="right">
+                <k-button>right</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="left-bottombottomasdfklajdsflkasj dklfjasd lkfjasldk jflaksdj flkasjdflk asd" dir="left-bottom">
+                <k-button>left-bottom</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-12 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="right-bottomasdfklajdsflkasj dklfjasd lkfjasldk jflaksdj flkasjdflk asd" dir="right-bottom">
+                <k-button>right-bottom</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4 placeholder"></div>
+
+        <div class="col span-4 placeholder"></div>
+
+        <div class="col span-4">
+            <k-tip tip="bottom-left" dir="bottom-left">
+                <k-button>bottom-left</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4">
+            <k-tip tip="bottom" dir="bottom">
+                <k-button>bottom</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4">
+            <k-tip tip="bottom-right" dir="bottom-right">
+                <k-button>bottom-right</k-button>
+            </k-tip>
+        </div>
+
+        <div class="col span-4 placeholder"></div>
+    </div>
+
+    <hr>
+
+    <k-tip tip="bottom-right" dir="bottom-right">
+        <k-button>bottom-right</k-button>
+    </k-tip>
+
+    <k-tip tip="bottom-right" dir="bottom-right">
+        <k-button>bottom-right</k-button>
+    </k-tip>
+
 
 </body>
 </html>

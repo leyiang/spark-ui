@@ -1,3 +1,4 @@
+import "./components/k-tip.js";
 import "./components/k-icon.js";
 import "./components/k-loading.js";
 
