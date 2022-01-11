@@ -254,7 +254,6 @@ export default class KButton extends HTMLElement {
                 this.btn.removeChild( this.loadEl );
                 this.btn.removeAttribute("disabled", "disabled");
             }
-            console.log( 1, oldValue, newValue );
         }
     }
 }

@@ -1,4 +1,9 @@
 export default class KTip extends HTMLElement {
+
+    static get observedAttributes() {
+        return ["color"];
+    }
+
     constructor() {
         super();
 
@@ -35,7 +40,7 @@ export default class KTip extends HTMLElement {
                     text-align: left;
                     background-color: var(--color, rgba(0, 0, 0, 0.75));
                     color: #FFF;
-                    font-size: 12px;
+                    font-size: 14px;
                     font-style: normal;
                     width: max-content;
                     max-width: 200px;
@@ -50,10 +55,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([tip]:not([tip='']):hover:not([show=false]))::before,
-                :host([tip]:not([tip=''])[show=false])::before,
+                :host([tip]:not([tip=''])[show=true])::before,
                 :host([tip]:not([tip='']):focus-within:not([show=false]))::before,
                 :host([tip]:not([tip='']):hover:not([show=false]))::after,
-                :host([tip]:not([tip=''])[show=false])::after,
+                :host([tip]:not([tip=''])[show=true])::after,
                 :host([tip]:not([tip='']):focus-within:not([show=false]))::after {
                     visibility: visible;
                     opacity: 1;
@@ -77,16 +82,16 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host(:not([dir]):hover:not([show=false]))::before,
-                :host(:not([dir])[show=false])::before,
+                :host(:not([dir])[show=true])::before,
                 :host(:not([dir]):focus-within:not([show=false]))::before,
                 :host(:not([dir]):hover:not([show=false]))::after,
-                :host(:not([dir])[show=false])::after,
+                :host(:not([dir])[show=true])::after,
                 :host(:not([dir]):focus-within:not([show=false]))::after,
                 :host([dir="top"]:hover:not([show=false]))::before,
-                :host([dir="top"][show=false])::before,
+                :host([dir="top"][show=true])::before,
                 :host([dir="top"]:focus-within:not([show=false]))::before,
                 :host([dir="top"]:hover:not([show=false]))::after,
-                :host([dir="top"][show=false])::after,
+                :host([dir="top"][show=true])::after,
                 :host([dir="top"]:focus-within:not([show=false]))::after {
                     transform: translate( -50%, -10px );
                 }
@@ -106,10 +111,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="top-left"]:hover:not([show=false]))::before,
-                :host([dir="top-left"][show=false])::before,
+                :host([dir="top-left"][show=true])::before,
                 :host([dir="top-left"]:focus-within:not([show=false]))::before,
                 :host([dir="top-left"]:hover:not([show=false]))::after,
-                :host([dir="top-left"][show=false])::after,
+                :host([dir="top-left"][show=true])::after,
                 :host([dir="top-left"]:focus-within:not([show=false]))::after {
                     transform: translate(0, -10px);
                 }
@@ -129,10 +134,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="top-right"]:hover:not([show=false]))::before,
-                :host([dir="top-right"][show=false])::before,
+                :host([dir="top-right"][show=true])::before,
                 :host([dir="top-right"]:focus-within:not([show=false]))::before,
                 :host([dir="top-right"]:hover:not([show=false]))::after,
-                :host([dir="top-right"][show=false])::after,
+                :host([dir="top-right"][show=true])::after,
                 :host([dir="top-right"]:focus-within:not([show=false]))::after {
                     transform: translate(0, -10px);
                 }
@@ -151,10 +156,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="right"]:hover:not([show=false]))::before,
-                :host([dir="right"][show=false])::before,
+                :host([dir="right"][show=true])::before,
                 :host([dir="right"]:focus-within:not([show=false]))::before,
                 :host([dir="right"]:hover:not([show=false]))::after,
-                :host([dir="right"][show=false])::after,
+                :host([dir="right"][show=true])::after,
                 :host([dir="right"]:focus-within:not([show=false]))::after {
                     transform: translate(10px, -50%);
                 }
@@ -174,10 +179,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="right-top"]:hover:not([show=false]))::before,
-                :host([dir="right-top"][show=false])::before,
+                :host([dir="right-top"][show=true])::before,
                 :host([dir="right-top"]:focus-within:not([show=false]))::before,
                 :host([dir="right-top"]:hover:not([show=false]))::after,
-                :host([dir="right-top"][show=false])::after,
+                :host([dir="right-top"][show=true])::after,
                 :host([dir="right-top"]:focus-within:not([show=false]))::after {
                     transform: translate(10px, 0);
                 }
@@ -197,10 +202,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="right-bottom"]:hover:not([show=false]))::before,
-                :host([dir="right-bottom"][show=false])::before,
+                :host([dir="right-bottom"][show=true])::before,
                 :host([dir="right-bottom"]:focus-within:not([show=false]))::before,
                 :host([dir="right-bottom"]:hover:not([show=false]))::after,
-                :host([dir="right-bottom"][show=false])::after,
+                :host([dir="right-bottom"][show=true])::after,
                 :host([dir="right-bottom"]:focus-within:not([show=false]))::after {
                     transform: translate(10px, 0);
                 }
@@ -220,10 +225,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="bottom"]:hover:not([show=false]))::before,
-                :host([dir="bottom"][show=false])::before,
+                :host([dir="bottom"][show=true])::before,
                 :host([dir="bottom"]:focus-within:not([show=false]))::before,
                 :host([dir="bottom"]:hover:not([show=false]))::after,
-                :host([dir="bottom"][show=false])::after,
+                :host([dir="bottom"][show=true])::after,
                 :host([dir="bottom"]:focus-within:not([show=false]))::after {
                     transform: translate(-50%, 10px);
                 }
@@ -243,10 +248,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="bottom-left"]:hover:not([show=false]))::before,
-                :host([dir="bottom-left"][show=false])::before,
+                :host([dir="bottom-left"][show=true])::before,
                 :host([dir="bottom-left"]:focus-within:not([show=false]))::before,
                 :host([dir="bottom-left"]:hover:not([show=false]))::after,
-                :host([dir="bottom-left"][show=false])::after,
+                :host([dir="bottom-left"][show=true])::after,
                 :host([dir="bottom-left"]:focus-within:not([show=false]))::after {
                     transform: translate(0, 10px);
                 }
@@ -266,10 +271,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="bottom-right"]:hover:not([show=false]))::before,
-                :host([dir="bottom-right"][show=false])::before,
+                :host([dir="bottom-right"][show=true])::before,
                 :host([dir="bottom-right"]:focus-within:not([show=false]))::before,
                 :host([dir="bottom-right"]:hover:not([show=false]))::after,
-                :host([dir="bottom-right"][show=false])::after,
+                :host([dir="bottom-right"][show=true])::after,
                 :host([dir="bottom-right"]:focus-within:not([show=false]))::after {
                     transform: translate(0, 10px);
                 }
@@ -288,10 +293,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="left"]:hover:not([show=false]))::before,
-                :host([dir="left"][show=false])::before,
+                :host([dir="left"][show=true])::before,
                 :host([dir="left"]:focus-within:not([show=false]))::before,
                 :host([dir="left"]:hover:not([show=false]))::after,
-                :host([dir="left"][show=false])::after,
+                :host([dir="left"][show=true])::after,
                 :host([dir="left"]:focus-within:not([show=false]))::after {
                     transform: translate(-10px, -50%);
                 }
@@ -311,10 +316,10 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="left-top"]:hover:not([show=false]))::before,
-                :host([dir="left-top"][show=false])::before,
+                :host([dir="left-top"][show=true])::before,
                 :host([dir="left-top"]:focus-within:not([show=false]))::before,
                 :host([dir="left-top"]:hover:not([show=false]))::after,
-                :host([dir="left-top"][show=false])::after,
+                :host([dir="left-top"][show=true])::after,
                 :host([dir="left-top"]:focus-within:not([show=false]))::after {
                     transform: translate(-10px, 0);
                 }
@@ -335,14 +340,25 @@ export default class KTip extends HTMLElement {
                 }
 
                 :host([dir="left-bottom"]:hover:not([show=false]))::before,
-                :host([dir="left-bottom"][show=false])::before,
+                :host([dir="left-bottom"][show=true])::before,
                 :host([dir="left-bottom"]:focus-within:not([show=false]))::before,
                 :host([dir="left-bottom"]:hover:not([show=false]))::after,
-                :host([dir="left-bottom"][show=false])::after,
+                :host([dir="left-bottom"][show=true])::after,
                 :host([dir="left-bottom"]:focus-within:not([show=false]))::after {
                     transform: translate(-10px, 0);
                 }
 
+                :host([type="success"]) {
+                    --color: var(--successColor, #52C41A);
+                }
+                
+                :host([type="error"]) {
+                    --color: var(--errorColor, #f4615c);
+                }
+                
+                :host([type="warning"]) {
+                    --color: var(--warningColor, #faad14);
+                }
             </style>
             
             <slot></slot>
@@ -351,6 +367,37 @@ export default class KTip extends HTMLElement {
 
     get tip() {
         return this.getAttribute("tip");
+    }
+
+    get color() {
+        return this.getAttribute("color");
+    }
+
+    get show() {
+        return this.getAttribute("show");
+    }
+
+    set show( val ) {
+        if( val === null || val === false ) {
+            this.setAttribute( "show", false );
+        } else {
+            this.setAttribute( "show", true );
+        }
+    }
+
+    set color(val) {
+        this.setAttribute("color", val);
+    }
+
+
+    connectedCallback() {
+
+    }
+
+    attributeChangedCallback( name, oldVal, newVal ) {
+        if( name === "color" && this.shadowRoot ) {
+            this.style.setProperty("--color", newVal );
+        }
     }
 }
 
