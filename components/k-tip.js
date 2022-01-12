@@ -389,6 +389,11 @@ export default class KTip extends HTMLElement {
         this.setAttribute("color", val);
     }
 
+    set tip( val ) {
+        this.setAttribute( "tip", val );
+    }
+
+
 
     connectedCallback() {
 
