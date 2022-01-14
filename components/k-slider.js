@@ -40,6 +40,10 @@ class KSlider extends HTMLElement {
                     border-radius: 2px;
                 }
                 
+                input[type="range"]:hover {
+                    background-color: rgba(0, 0, 0, .05);
+                }
+                
                 input[type="range"]::-webkit-slider-runnable-track {
                     display: flex;
                     align-items: center;
@@ -158,6 +162,9 @@ class KSlider extends HTMLElement {
     }
 
     set value(val) {
+        if( val > this.max ) val = this.max;
+        if( val < this.min ) val = this.min;
+
         this.slider.value = val;
         this.sliderContainer.tip = val;
         this.sliderContainer.style.setProperty("--percent", (this.value - this.min) / (this.max - this.min) );
@@ -194,23 +201,38 @@ class KSlider extends HTMLElement {
         /*
         为什么不直接监听 slider， 而是要用父元素来监听slider的wheel?
          */
-        this.addEventListener("wheel", e => {
-            // Slider focused
-            if( getComputedStyle(this.slider).zIndex == 2 ) {
-                e.preventDefault();
-                if( e.deltaY < 0 || e.deltaY > 0 ) {
-                    this.value -= this.step * 5;
-                } else {
-                    this.value += this.step * 5;
-                }
-
-                this.dispatchEvent(new CustomEvent("change", {
-                    detail: {
-                        value: this.value
-                    }
-                }));
+        // this.addEventListener("wheel", e => {
+        //     // Slider focused
+        //     // if( getComputedStyle(this.slider).zIndex == 2 ) {
+        //         e.preventDefault();
+        //         if( e.deltaY > 0 ) {
+        //             this.value -= this.step * 5;
+        //         } else {
+        //             this.value += this.step * 5;
+        //         }
+        //
+        //         this.dispatchEvent(new CustomEvent("change", {
+        //             detail: {
+        //                 value: this.value
+        //             }
+        //         }));
+        //     // }
+        // }, true );
+        //
+        this.slider.addEventListener("wheel", e => {
+            e.preventDefault();
+            if( e.deltaY > 0 ) {
+                this.value -= this.step * 5;
+            } else {
+                this.value += this.step * 5;
             }
-        }, true );
+
+            this.dispatchEvent(new CustomEvent("change", {
+                detail: {
+                    value: this.value
+                }
+            }));
+        });
     }
 
     attributeChangedCallback( name, oldValue, newValue ) {
