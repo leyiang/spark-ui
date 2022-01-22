@@ -32,6 +32,10 @@ export default class KTip extends HTMLElement {
                     pointer-events: none;
                 }
                 
+                :host::after {
+                    color: pink;
+                }
+                
                 :host::before {
                     content: attr(prefix) attr(tip) attr(suffix);
                     border-radius: 3px;
@@ -77,7 +81,7 @@ export default class KTip extends HTMLElement {
 
                 :host([dir="top"])::after,
                 :host(:not([dir]))::after {
-                    margin-bottom: -12px;
+                    /*margin-bottom: -12px;*/
                     border-top-color: currentColor;
                 }
 
